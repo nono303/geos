@@ -218,15 +218,15 @@ class URLFormatter:
         'http://example.com:80/kml_master.kml'
         """
         rel_url = rel_url.lstrip("/")
-        return "{}://{}:{}/{}".format(self.url_scheme, self.host, self.port, rel_url)
+        return "{}://{}/{}".format(self.url_scheme, self.host, rel_url)
 
     def get_map_root_url(self, mapsource):
-        return self.get_abs_url("/maps/{}.kml".format(mapsource.id))
+        return self.get_abs_url("/geos/{}.kml".format(mapsource.id))
 
     def get_map_url(self, mapsource, grid_coords):
         """ Get URL to a map region. """
         return self.get_abs_url(
-                "/maps/{}/{}/{}/{}.kml".format(mapsource.id, grid_coords.zoom,
+                "/geos/{}/{}/{}/{}.kml".format(mapsource.id, grid_coords.zoom,
                                                grid_coords.x, grid_coords.y))
 
 

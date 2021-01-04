@@ -84,7 +84,7 @@ def kml_master():
     return kml_response(kml_doc)
 
 
-@app.route("/maps/<map_source>.kml")
+@app.route("/geos/<map_source>.kml")
 def kml_map_root(map_source):
     """KML for a given map"""
     map = app.config["mapsources"][map_source]
@@ -92,7 +92,7 @@ def kml_map_root(map_source):
     return kml_response(kml_doc)
 
 
-@app.route("/maps/<map_source>/<int:z>/<int:x>/<int:y>.kml")
+@app.route("/geos/<map_source>/<int:z>/<int:x>/<int:y>.kml")
 def kml_region(map_source, z, x, y):
     """KML region fetched by a Google Earth network link. """
     map = app.config["mapsources"][map_source]
