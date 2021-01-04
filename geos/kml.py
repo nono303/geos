@@ -198,7 +198,7 @@ def kml_folder(name):
     Returns:
         KMLElement: the KML <Folder>
     """
-    return KML.Folder(KML.name(name))
+    return KML.Folder(KML.name(name.strip("\\")))
 
 
 class URLFormatter:
